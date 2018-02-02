@@ -57,7 +57,7 @@ class HttpTransport(Transport):
         self.proxy = {}
         self.urlopener = None
 
-    def open(self, request):
+    def open(self, request, *args, **kwargs):
         try:
             url = self.__get_request_url_for_urllib(request)
             log.debug('opening (%s)', url)
@@ -67,7 +67,7 @@ class HttpTransport(Transport):
         except urllib2.HTTPError, e:
             raise TransportError(str(e), e.code, e.fp)
 
-    def send(self, request):
+    def send(self, request, *args, **kwargs):
         url = self.__get_request_url_for_urllib(request)
         msg = request.message
         headers = request.headers
