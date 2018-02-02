@@ -49,7 +49,7 @@ class Request(UnicodeMixin):
 
     """
 
-    def __init__(self, url, message=None):
+    def __init__(self, url, message=None, *args, **kwargs):
         """
         Raised exception in case of detected non-ASCII URL characters may be
         either UnicodeEncodeError or UnicodeDecodeError, depending on the used
